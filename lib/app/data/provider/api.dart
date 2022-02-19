@@ -9,7 +9,7 @@ const baseUrl = 'https://api.github.com';
 class MyApi extends GetConnect {
   getRepos() async {
     final response = await get('$baseUrl/repositories', decoder: (res) => res);
-
+    // print(response.body);
     if (response.hasError) {
       return false;
     } else {
@@ -19,7 +19,10 @@ class MyApi extends GetConnect {
 
   getRepoName(repoName) async {
     final response =
-        await get('$baseUrl/search/code?q=' '+repo:$repoName/$repoName');
+        await get('$baseUrl/search/code?q=+repo:$repoName/$repoName');
+    // print(response.body);
+    print('$baseUrl/search/code?q=+repo:$repoName/$repoName');
+    //https: //api.github.com/search/code?q=%27%27+repo:jquery/jquery
     if (response.hasError) {
       return false;
     } else {

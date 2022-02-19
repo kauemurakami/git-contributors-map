@@ -16,7 +16,7 @@ class Repository {
     this.items,
   });
 
-  int? totalCount;
+  dynamic? totalCount;
   bool? incompleteResults;
   List<Item>? items;
 
@@ -47,7 +47,7 @@ class Item {
 
   String? name, path, sha, url, gitUrl, htmlUrl;
   RepositoryClass? repository;
-  int? score;
+  dynamic? score;
 
   factory Item.fromJson(Map<String, dynamic> json) => Item(
         name: json["name"],

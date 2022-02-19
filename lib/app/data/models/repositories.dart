@@ -4,8 +4,8 @@
 
 import 'dart:convert';
 
-List<Repositories> repositoriesFromJson(String str) => List<Repositories>.from(
-    json.decode(str).map((x) => Repositories.fromJson(x)));
+List<Repositories> repositoriesFromJson(str) =>
+    List<Repositories>.from(str.map((x) => Repositories.fromJson(x)));
 
 String repositoriesToJson(List<Repositories> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
