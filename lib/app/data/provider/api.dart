@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:get/get_connect/connect.dart';
 import 'package:git_contributors/app/data/models/repositories.dart';
+import 'package:git_contributors/app/data/models/repository.dart';
 
 const baseUrl = 'https://api.github.com';
 
@@ -22,7 +23,16 @@ class MyApi extends GetConnect {
     if (response.hasError) {
       return false;
     } else {
-      return repositoriesFromJson(response.body);
+      return Repository.fromJson(response.body);
+    }
+  }
+
+  getContributors(contributorsUrl) async {
+    final response = await get('$contributorsUrl');
+    if (response.hasError) {
+      return false;
+    } else {
+      // return repositoriesFromJson(response.body);
     }
   }
 }
